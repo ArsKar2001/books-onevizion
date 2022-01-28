@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: "books-onevizion"
+  datasource:
+    url: "jdbc:h2:./db/books"
+    username: "h2u"
+    password: "h2p"
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: h2
+    show-sql: true
+    open-in-view: false
