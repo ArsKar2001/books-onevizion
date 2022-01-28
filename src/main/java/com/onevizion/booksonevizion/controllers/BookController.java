@@ -15,7 +15,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @PostMapping
+    @PostMapping("save")
     public ResponseEntity<?> saveBook(@RequestBody Book book) {
         return ResponseEntity.ok(bookService.save(book));
     }

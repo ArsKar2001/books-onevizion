@@ -7,8 +7,8 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Getter
 @Setter
+@Getter
 @Table(name = "BOOK")
 public class Book {
     @Id
@@ -20,6 +20,43 @@ public class Book {
     private String description;
 
     public Book() { }
+
+
+    public static class Builder {
+        private Integer id;
+        private String title;
+        private String author;
+        private String description;
+
+        public Builder id(Integer id) {
+            this.id = id;
+            return this;
+        }
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+        public Builder author(String author) {
+            this.author = author;
+            return this;
+        }
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Book build() {
+            return new Book(this);
+        }
+
+    }
+
+    private Book(Builder builder) {
+        this.id = builder.id;
+        this.description = builder.description;
+        this.title = builder.title;
+        this.author = builder.author;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -35,4 +72,5 @@ public class Book {
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
     }
+
 }
